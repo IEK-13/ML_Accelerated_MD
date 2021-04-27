@@ -1,3 +1,10 @@
+###########################################################################
+# Purpose: Convert multiple vasprun.xml files into raw data used by deepmd#
+# Author: Zheng-Da He                                                     #
+# Date: 28/04/2021                                                        #
+# Location: Aachen, Germany                                               #
+###########################################################################
+
 import dpdata
 import os
 
@@ -36,13 +43,13 @@ for name in allXmlFiles:
         f_coord.write(line)
     f_tmp_coord.close()
     print('copy coord from {} to the coord.raw'.format(tmp_list[0]))
-   
+
     f_tmp_energy = open('{}/energy.raw'.format(tmp_list[0]), 'r')
     for line in f_tmp_energy.readlines():
         f_energy.write(line)
     f_tmp_energy.close()
     print('copy energy from {} to the energy.raw'.format(tmp_list[0]))
-    
+
     f_tmp_force = open('{}/force.raw'.format(tmp_list[0]), 'r')
     for line in f_tmp_force.readlines():
         f_force.write(line)
